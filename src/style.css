@@ -1,5 +1,9 @@
 html,
-body,
+/* body {
+  background-image: url('./assets/image/bg.jpg');
+  background-size:cover;
+} */
+
 #app {
   height: 100%;
   margin: 0;

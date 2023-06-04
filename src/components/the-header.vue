@@ -1,21 +1,18 @@
 <template>
-    <el-header class="header">
-        <el-space wrap>
-            <div>
-                <el-icon>
-                    <HomeFilled />
-                </el-icon>
-                <a href="">首页</a>
-            </div>
-            <div><el-icon>
-                    <Management />
-                </el-icon><a href="">归档</a></div>
-
-            <a href="">分类</a>
-            <a href="">标签</a>
-            <a href="">关于我</a>
-        </el-space>
-    </el-header>
+    <el-space wrap>
+        <div>
+            <el-icon>
+                <HomeFilled />
+            </el-icon>
+            <a href="">首页</a>
+        </div>
+        <div><el-icon>
+                <Management />
+            </el-icon><a href="">归档</a></div>
+        <a href="">分类</a>
+        <a href="">标签</a>
+        <a href="">关于我</a>
+    </el-space>
 </template>
 
 <style scoped>
@@ -49,10 +46,5 @@ a:hover::after {
     transform: scaleX(1);
     /* 设置变换圆点为左 */
     transform-origin: left;
-}
-
-.header {
-    background: linear-gradient(to right, #f3e7e9 0%, #e3eeff 99%, #e3eeff 100%);
-    height: 50px;
 }
 </style>
