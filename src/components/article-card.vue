@@ -1,5 +1,6 @@
 <script setup lang="ts">
 defineProps({
+    id: Number,
     title: String,
     summary: String,
     categoryName: String,
@@ -14,7 +15,9 @@ defineProps({
         <el-row>
             <!-- 封面 -->
             <el-col :span="8">
-                <!-- <el-image :src="cover"></el-image> -->
+                <el-link :underline="false" :href="'/article?id=' + id">
+                    <el-image :src="thumbnail" class="image"></el-image>
+                </el-link>
             </el-col>
 
             <!-- 简略内容 -->
@@ -72,7 +75,18 @@ defineProps({
 
             <!-- 文章分类 -->
             <el-col :span="3">
-                <el-button class="button" size="large" round>{{ categoryName }}</el-button>
+                <el-link :underline="false" href="/" target="_blank">
+                    <el-card shadow="hover" class="categoryCard">
+                        <el-text class="category">{{ categoryName }}</el-text>
+                    </el-card>
+                </el-link>
+
+                <el-link :underline="false" style="margin-top: 100px; margin-left: 15px;">
+                    <span>阅读全文</span>
+                    <el-icon>
+                        <DArrowRight />
+                    </el-icon>
+                </el-link>
             </el-col>
         </el-row>
     </el-card>
@@ -92,9 +106,22 @@ defineProps({
     font-size: 30px;
 }
 
-.button {
-    margin-top: 5px;
+.image {
+    height: 180px;
+    width: 286.66px;
+}
+
+.category {
+    font-size: 20px;
     color: white;
+}
+
+.categoryCard {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 40px;
+    width: 100px;
     background-color: cornflowerblue;
 }
 </style>

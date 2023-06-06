@@ -9,11 +9,9 @@ const hotArticle = reactive({
 })
 
 onMounted(async () => {
-    const resp = await axios.get('http://localhost:8080/api/article/hotArticleList')
+    const resp = await axios.get('/article/hotArticleList')
     hotArticle.list = resp.data.data
 })
-
-console.log(hotArticle.list)
 </script>
 
 <template>
@@ -23,15 +21,11 @@ console.log(hotArticle.list)
                 <info-card></info-card>
             </el-col>
             <el-col :span="16">
-                <el-divider class="divider">推荐博客</el-divider>
+                <el-divider class="divider">热门博客</el-divider>
                 <el-space direction="vertical">
-                    <article-card v-for="item in hotArticle.list" 
-                    :title="item.title"
-                    :summary="item.summary"
-                    :category-name="categoryName"
-                    :thumbnail="thumbnail"
-                    :view-count="viewCount"
-                    :create-time="createTime"></article-card>
+                    <article-card v-for="item in hotArticle.list" :id="item.id" :title="item.title" :summary="item.summary"
+                        :categoryName="item.categoryName" :thumbnail="item.thumbnail" :viewCount="item.viewCount"
+                        :createTime="item.createTime"></article-card>
                 </el-space>
             </el-col>
         </el-row>
