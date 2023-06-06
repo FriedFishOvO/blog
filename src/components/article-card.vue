@@ -1,7 +1,12 @@
 <script setup lang="ts">
-import { ref } from 'vue';
-
-const cover = ref('https://picsum.photos/1920/1080')
+defineProps({
+    title: String,
+    summary: String,
+    categoryName: String,
+    thumbnail: String,
+    viewCount: Number,
+    createTime: Date
+})
 </script>
 
 <template>
@@ -9,19 +14,22 @@ const cover = ref('https://picsum.photos/1920/1080')
         <el-row>
             <!-- 封面 -->
             <el-col :span="8">
-                <el-image :src="cover"></el-image>
+                <!-- <el-image :src="cover"></el-image> -->
             </el-col>
+
             <!-- 简略内容 -->
-            <el-col :span="16">
+            <el-col :span="13">
+                <!-- 文章标题 -->
                 <el-row style="margin-left:20px">
-                    <el-text class="title">数据结构与算法A实验八排序</el-text>
+                    <el-link :underline="false" href="/asd" class="title">{{ title }}</el-link>
                 </el-row>
+
                 <el-row class="row">
                     <el-space>
                         <el-icon>
                             <Calendar />
                         </el-icon>
-                        <el-text>2021年12月13日</el-text>
+                        <el-text>{{ createTime }}</el-text>
                     </el-space>
 
                     <el-divider direction="vertical" />
@@ -31,7 +39,7 @@ const cover = ref('https://picsum.photos/1920/1080')
                         <el-icon>
                             <View />
                         </el-icon>
-                        <el-text>504</el-text>
+                        <el-text>{{ viewCount }}</el-text>
                     </el-space>
 
                     <el-divider direction="vertical" />
@@ -45,9 +53,12 @@ const cover = ref('https://picsum.photos/1920/1080')
                     </el-space>
 
                 </el-row>
+
+                <!-- 文章简介 -->
                 <el-row class="row">
-                    <el-text size="large">炸鱼OvO写的数据结构博客。</el-text>
+                    <el-link :underline="false">{{ summary }}</el-link>
                 </el-row>
+
                 <el-row class="row">
                     <el-space>
                         <el-tag>Tag 1</el-tag>
@@ -57,6 +68,11 @@ const cover = ref('https://picsum.photos/1920/1080')
                         <el-tag class="ml-2" type="danger">Tag 5</el-tag>
                     </el-space>
                 </el-row>
+            </el-col>
+
+            <!-- 文章分类 -->
+            <el-col :span="3">
+                <el-button class="button" size="large" round>{{ categoryName }}</el-button>
             </el-col>
         </el-row>
     </el-card>
@@ -74,5 +90,11 @@ const cover = ref('https://picsum.photos/1920/1080')
 
 .title {
     font-size: 30px;
+}
+
+.button {
+    margin-top: 5px;
+    color: white;
+    background-color: cornflowerblue;
 }
 </style>
