@@ -21,7 +21,8 @@ onMounted(async () => {
             </el-timeline-item>
             <el-timeline-item v-for="item in article.list" :timestamp="item.createTime" placement="top">
                 <article-card :title="item.title" :viewCount="item.viewCount" :createTime="item.createTime"
-                    :thumbnail="item.thumbnail" :categoryName="item.categoryName" :summary="item.summary"></article-card>
+                    :thumbnail="item.thumbnail" :categoryName="item.categoryName" :summary="item.summary" :id="item.id"
+                    :categoryId="item.categoryId"></article-card>
             </el-timeline-item>
         </el-timeline>
 

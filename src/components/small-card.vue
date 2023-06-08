@@ -1,6 +1,17 @@
+<script setup lang="ts">
+defineProps({
+    id: Number,
+    title: String,
+    summary: String,
+    thumbnail: String,
+    viewCount: Number,
+    createTime: Date
+})
+</script>
+
 <template>
     <el-card class="box-card" shadow="hover">
-        <el-row>
+        <el-row class="card">
             <!-- 封面 -->
             <el-col :span="8">
                 <el-link :underline="false" :href="'/article/' + id">
@@ -9,9 +20,9 @@
             </el-col>
 
             <!-- 简略内容 -->
-            <el-col :span="13">
+            <el-col :span="16">
                 <!-- 文章标题 -->
-                <el-row style="margin-left:20px">
+                <el-row style="margin-left: 20px">
                     <el-link :underline="false" :href="'/article/' + id" class="title">{{ title }}</el-link>
                 </el-row>
 
@@ -57,6 +68,15 @@
 <style scoped>
 .box-card {
     width: 569.2px;
-    height: 100px;
+    height: 150px;
+}
+
+.row {
+    margin: 10px 20px;
+}
+
+.title {
+    font-size: 20px;
+    font-weight: bold;
 }
 </style>

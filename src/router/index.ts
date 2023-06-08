@@ -3,6 +3,7 @@ import Homepage from '../views/Homepage.vue'
 import Archive from '../views/Archive.vue'
 import Category from '../views/Category.vue'
 import ArticleDetail from '../views/ArticleDetail.vue'
+import CategoryDetail from '../views/CategoryDetail.vue'
 
 const routes = [
     {
@@ -24,6 +25,12 @@ const routes = [
         path: '/article/:id',
         name: '文章详情',
         component: ArticleDetail,
+        props: true
+    },
+    {
+        path: '/category/:id',
+        name: '分类详情',
+        component: CategoryDetail,
         props: true
     }
 ]

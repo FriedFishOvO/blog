@@ -27,7 +27,7 @@ onMounted(() => {
     <el-card class="header" shadow="never" :style="{ backgroundImage: 'url(' + thumbnail + ')' }">
         <!-- 文章分类 -->
         <el-row style="display: flex; justify-content: right;">
-            <el-link :underline="false" href="/" target="_blank">
+            <el-link :underline="false" :href="'/category/' + categoryId">
                 <el-card shadow="hover" class="categoryCard">
                     <el-text class="category">{{ categoryName }}</el-text>
                 </el-card>

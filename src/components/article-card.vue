@@ -3,6 +3,7 @@ defineProps({
     id: Number,
     title: String,
     summary: String,
+    categoryId: Number,
     categoryName: String,
     thumbnail: String,
     viewCount: Number,
@@ -75,7 +76,7 @@ defineProps({
 
             <!-- 文章分类 -->
             <el-col :span="3">
-                <el-link :underline="false" href="/" target="_blank">
+                <el-link :underline="false" :href="'/category/' + categoryId">
                     <el-card shadow="hover" class="categoryCard">
                         <el-text class="category">{{ categoryName }}</el-text>
                     </el-card>

@@ -1,22 +1,19 @@
 <script setup lang="ts">
-import { reactive, onMounted } from 'vue';
+import { ref, reactive, onMounted } from 'vue';
 import axios from 'axios';
 
 const category = reactive({
     list: [] as any
 })
 
+const isLoading = ref(false)
+
 onMounted(async () => {
+    isLoading.value = true
     const resp = await axios.get('/category/getCategoryList')
     category.list = resp.data.data
+    isLoading.value = false
 })
-
-// function getRandomColor() {
-//     const r = Math.floor(Math.random() * 256);
-//     const g = Math.floor(Math.random() * 256);
-//     const b = Math.floor(Math.random() * 256);
-//     return `rgb(${r}, ${g}, ${b})`;
-// }
 </script>
 
 <template>
@@ -30,7 +27,7 @@ onMounted(async () => {
 
             <!-- 分类列表 -->
             <el-space class="space" wrap>
-                <el-link v-for="item in category.list" :underline="false">
+                <el-link v-if="!isLoading" v-for="item in category.list" :href="'/category/' + item.id" :underline="false">
                     <el-card class="category" shadow="hover">
                         <el-divider direction="vertical" class="divider"></el-divider>
                         <el-text class="name">{{ item.name }}</el-text>

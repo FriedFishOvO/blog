@@ -25,7 +25,7 @@ onMounted(async () => {
                 <el-space direction="vertical">
                     <article-card v-for="item in hotArticle.list" :id="item.id" :title="item.title" :summary="item.summary"
                         :categoryName="item.categoryName" :thumbnail="item.thumbnail" :viewCount="item.viewCount"
-                        :createTime="item.createTime"></article-card>
+                        :createTime="item.createTime" :categoryId="item.categoryId"></article-card>
                 </el-space>
             </el-col>
         </el-row>

@@ -5,7 +5,7 @@ import ContentCard from '../components/content-card.vue'
 import axios from 'axios';
 
 const props = defineProps({
-    id: String
+    id: Number
 })
 
 const article = reactive({
@@ -34,7 +34,7 @@ onMounted(async () => {
                 <content-card v-if="!isLoading" :title="article.data.title" :createTime="article.data.createTime"
                     :updateTime="article.data.updateTime" :viewCount="article.data.viewCount"
                     :thumbnail="article.data.thumbnail" :content="article.data.content"
-                    :categoryName="article.data.categoryName"></content-card>
+                    :categoryName="article.data.categoryName" :categoryId="article.data.categoryId"></content-card>
             </el-col>
         </el-row>
 
