@@ -2,6 +2,7 @@ import { createRouter, createWebHistory } from 'vue-router'
 import Homepage from '../views/Homepage.vue'
 import Archive from '../views/Archive.vue'
 import Category from '../views/Category.vue'
+import ArticleDetail from '../views/ArticleDetail.vue'
 
 const routes = [
     {
@@ -18,6 +19,12 @@ const routes = [
         path: '/archive',
         name: '归档',
         component: Archive
+    },
+    {
+        path: '/article/:id',
+        name: '文章详情',
+        component: ArticleDetail,
+        props: true
     }
 ]
 

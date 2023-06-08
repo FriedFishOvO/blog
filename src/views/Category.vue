@@ -1,44 +1,51 @@
 <script setup lang="ts">
 import { reactive, onMounted } from 'vue';
 import axios from 'axios';
-import ArticleCard from '../components/article-card.vue';
 
 const category = reactive({
-    list: []
+    list: [] as any
 })
 
 onMounted(async () => {
     const resp = await axios.get('/category/getCategoryList')
     category.list = resp.data.data
 })
+
+// function getRandomColor() {
+//     const r = Math.floor(Math.random() * 256);
+//     const g = Math.floor(Math.random() * 256);
+//     const b = Math.floor(Math.random() * 256);
+//     return `rgb(${r}, ${g}, ${b})`;
+// }
 </script>
 
 <template>
     <el-main class="main">
-        <el-row>
-            <!-- 分类列表部分 -->
-            <el-card class="categoryCard" shadow="hover">
-                <el-row style="display: flex; justify-content: center;">
-                    <h1>文章分类</h1>
-                </el-row>
 
-                <el-row>
-                    <el-space wrap>
-                        <el-link v-for="item in category.list" :underline="false">
-                            <el-card shadow="hover" class="category">
-                                {{ item.name }}
-                            </el-card>
-                        </el-link>
-                    </el-space>
-                </el-row>
-            </el-card>
-        </el-row>
+        <el-card class="categoryCard" shadow="hover">
 
-        <article-card></article-card>
-        <article-card></article-card>
-        <article-card></article-card>
-        <article-card></article-card>
-        <article-card></article-card>
+            <el-row style="display: flex; justify-content: center;">
+                <el-text style="font-size: 30px; font-weight: bold;">文章分类</el-text>
+            </el-row>
+
+            <!-- 分类列表 -->
+            <el-space class="space" wrap>
+                <el-link v-for="item in category.list" :underline="false">
+                    <el-card class="category" shadow="hover">
+                        <el-divider direction="vertical" class="divider"></el-divider>
+                        <el-text class="name">{{ item.name }}</el-text>
+
+                        <el-row>
+                            <el-icon class="icon">
+                                <Collection />
+                            </el-icon>
+                            <el-text class="count">{{ item.count }}</el-text>
+                        </el-row>
+                    </el-card>
+                </el-link>
+            </el-space>
+
+        </el-card>
 
         <el-backtop :right="30" :bottom="75" />
     </el-main>
@@ -55,14 +62,50 @@ onMounted(async () => {
 .categoryCard {
     display: flex;
     justify-content: center;
-    width: 1138.4px;
+    width: 1220px;
+    margin-top: 20px;
 }
 
 .category {
+    height: 131px;
+    width: 369.862px;
+    border-radius: 30px;
+    background-color: cornflowerblue;
+}
+
+.space {
     display: flex;
     justify-content: center;
-    align-items: center;
-    height: 40px;
-    width: 100px;
+    margin-top: 20px;
+    width: 100%;
+}
+
+.name {
+    font-size: 25px;
+    font-weight: bold;
+    color: white;
+    margin-left: 10px;
+}
+
+.divider {
+    border-width: 5px;
+    height: 30px;
+    margin-bottom: 10px;
+    color: white;
+}
+
+.icon {
+    color: white;
+    font-size: 25px;
+    margin-top: 20px;
+    margin-left: 3px;
+}
+
+.count {
+    color: white;
+    font-size: 25px;
+    font-weight: bold;
+    margin-top: 15px;
+    margin-left: 15px;
 }
 </style>

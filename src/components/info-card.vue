@@ -1,6 +1,4 @@
 <script setup lang="ts">
-// import { ref } from 'vue';
-
 // const circleUrl='../assets/image/avatar.jpg'
 </script>
 
@@ -33,7 +31,7 @@
     </el-card>
 </template>
 
-<style>
+<style scoped>
 .box-card {
     width: 300px;
     height: 336.4px;

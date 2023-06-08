@@ -1,15 +1,3 @@
-<script setup lang="ts">
-defineProps({
-    id: Number,
-    title: String,
-    summary: String,
-    categoryName: String,
-    thumbnail: String,
-    viewCount: Number,
-    createTime: Date
-})
-</script>
-
 <template>
     <el-card class="box-card" shadow="hover">
         <el-row>
@@ -61,32 +49,6 @@ defineProps({
                 <el-row class="row">
                     <el-link :underline="false" :href="'/article/' + id">{{ summary }}</el-link>
                 </el-row>
-
-                <el-row class="row">
-                    <el-space>
-                        <el-tag>Tag 1</el-tag>
-                        <el-tag class="ml-2" type="success">Tag 2</el-tag>
-                        <el-tag class="ml-2" type="info">Tag 3</el-tag>
-                        <el-tag class="ml-2" type="warning">Tag 4</el-tag>
-                        <el-tag class="ml-2" type="danger">Tag 5</el-tag>
-                    </el-space>
-                </el-row>
-            </el-col>
-
-            <!-- 文章分类 -->
-            <el-col :span="3">
-                <el-link :underline="false" href="/" target="_blank">
-                    <el-card shadow="hover" class="categoryCard">
-                        <el-text class="category">{{ categoryName }}</el-text>
-                    </el-card>
-                </el-link>
-
-                <el-link :underline="false" :href="'/article/' + id" style="margin-top: 100px; margin-left: 15px;">
-                    <span>阅读全文</span>
-                    <el-icon>
-                        <DArrowRight />
-                    </el-icon>
-                </el-link>
             </el-col>
         </el-row>
     </el-card>
@@ -94,34 +56,7 @@ defineProps({
 
 <style scoped>
 .box-card {
-    width: 900px;
-    height: 222.4px;
-}
-
-.row {
-    margin: 20px 20px;
-}
-
-.title {
-    font-size: 30px;
-}
-
-.image {
-    height: 180px;
-    width: 286.66px;
-}
-
-.category {
-    font-size: 20px;
-    color: white;
-}
-
-.categoryCard {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 40px;
-    width: 100px;
-    background-color: cornflowerblue;
+    width: 569.2px;
+    height: 100px;
 }
 </style>
